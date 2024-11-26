@@ -3,6 +3,19 @@ const array = [1, 2, 2, 3, 4, 4, 5];
 const uniqueArray = [...new Set(array)];
 // console.log(uniqueArray); // Output: [1, 2, 3, 4, 5]
 
+// Remove duplicates from an array[Using Map]
+function removeDuplicates(arr) {
+    const uniqueArray = [];
+    arr.forEach(item => {
+      if (!uniqueArray.includes(item)) {
+        uniqueArray.push(item);
+      }
+    });
+    return uniqueArray;
+}
+const uniqueNumbers = removeDuplicates(array);
+// console.log(uniqueNumbers); // Output: [1, 2, 3, 4, 5, 6, 7]
+
 // Separate the odd & even numbers from an array
 const even = uniqueArray.filter((num)=>num%2 ==0);
 const odd = uniqueArray.filter((num)=> num%2 !=0);
@@ -13,6 +26,34 @@ function isPalindrome(str) {
     return str.split("").reverse().join("") === str
 }
 // console.log(isPalindrome("MOM"));
+
+// Palindrome(using recursive()):
+function isPalindrome(str) {
+    // Base case: If the string has length 0 or 1, it's a palindrome
+    if (str.length <= 1) {
+        return true;
+    }
+
+    // Check if the first and last characters are the same
+    if (str[0] !== str[str.length - 1]) {
+        return false; // If they are not the same, it's not a palindrome
+    }
+
+    // Recursively check the substring without the first and last characters
+    return isPalindrome(str.slice(1, str.length - 1));
+}
+// console.log(isPalindrome("madam"));  // Output: true
+
+// find palindromes from a list of strings
+function findPalindromes(arr) {
+    return arr.filter(item => {
+        const str = item.toString(); // Convert to string to handle non-string items
+        return str === str.split('').reverse().join(''); // Check if the string is a palindrome
+    });
+}
+const words = ['level', 'world', 'radar', 'hello', 'madam', 121, 123];
+const palindromes = findPalindromes(words);
+// console.log(palindromes); // Output: ['level', 'radar', 'madam', 121]
 
 // Factorial Number
 function factorial(n) {
@@ -184,23 +225,6 @@ function findSecondHighest(arr) {
 const arr = [5, 3, 9, 2, 9, 4];
 // console.log(findSecondHighest(arr));  // Output: 5
 
-// Palindrome(using recursive()):
-function isPalindrome(str) {
-    // Base case: If the string has length 0 or 1, it's a palindrome
-    if (str.length <= 1) {
-        return true;
-    }
-
-    // Check if the first and last characters are the same
-    if (str[0] !== str[str.length - 1]) {
-        return false; // If they are not the same, it's not a palindrome
-    }
-
-    // Recursively check the substring without the first and last characters
-    return isPalindrome(str.slice(1, str.length - 1));
-}
-
-// console.log(isPalindrome("madam"));  // Output: true
 
 
 
