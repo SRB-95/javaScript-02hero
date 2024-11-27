@@ -83,22 +83,8 @@ function generateFibonacci(n) {
 
     return sequence;
 }
-
-// Example usage:
 const terms = 10; // Number of Fibonacci terms to generate
 // console.log(`Fibonacci sequence up to ${terms} terms:`, generateFibonacci(terms));
-
-// String to Title case
-function toTitleCase(str) {
-    return str
-        .toLowerCase() // Ensure the string is in lowercase
-        .split(" ") // Split the string into words
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
-        .join(" "); // Join the words back into a string
-}
-
-// Example usage:
-// console.log(toTitleCase("hello javascript"));
 
 // Sorting[Numbers]
 function sortNumbers(arr) {
@@ -220,11 +206,15 @@ function findSecondHighest(arr) {
 
     return second;
 }
-
-// Example usage
 const arr = [5, 3, 9, 2, 9, 4];
 // console.log(findSecondHighest(arr));  // Output: 5
 
 
 
-
+// INTERVIEW QUESTIONS
+// ===================
+// Add the array of strings
+function addStrings(inputArr) {
+    return inputArr.split("").map(Number).reduce((a, b)=>a+b,0)
+}
+console.log(addStrings("12345")); // Output: 15
